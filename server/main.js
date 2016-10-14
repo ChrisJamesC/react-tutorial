@@ -44,13 +44,14 @@ app.use('/presentation',express.static('../presentation'))
 app.use('/node_modules',express.static('../node_modules'));
 app.use('/scripts',express.static('../scripts'));
 
+var port = process.env.HEROKU==="true"?80:8000;
 var startServer = function() {
   // Enable CORS
 
-  app.listen(8000, function () {
+  app.listen(port, function () {
     var host = this.address().address;
-    var port = this.address().port;
-    console.log('React-tutorial server listening at http://%s:%s', host, port);
+    var running_port = this.address().port;
+    console.log('React-tutorial server listening at http://%s:%s', host, running_port);
   });
 }
 
@@ -117,5 +118,3 @@ rd.on('pause', function() {
   console.log('Data ready: ', data.length, ' elements loaded');
   startServer();
 })
-
-
