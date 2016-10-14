@@ -44,7 +44,7 @@ app.use('/presentation',express.static('../presentation'))
 app.use('/node_modules',express.static('../node_modules'));
 app.use('/scripts',express.static('../scripts'));
 
-var port = process.env.HEROKU==="true"?80:8000;
+var port = process.env.PORT || 8000;
 var startServer = function() {
   // Enable CORS
 
