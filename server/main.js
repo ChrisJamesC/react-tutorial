@@ -35,6 +35,7 @@ app.get('/status', function (req, res) {
   res.json({'status': 'ok'})
 });
 
+app.get('/', (req, res) => res.redirect("/web_advanced"));
 app.use('/web',express.static('../web_advanced'));
 app.use('/web_advanced',express.static('../web_advanced'));
 app.use('/web_basic',express.static('../web_basic'));
